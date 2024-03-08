@@ -1,0 +1,24 @@
+.profile-pic {
+    grid-area: profile;
+}
+
+.pic {
+    filter: drop-shadow(rgba(0, 0, 0, 0.16) 0px 1px 4px);
+}
+
+.profile-details {
+    grid-area: details;
+    ;
+}
+
+.custom-grid {
+    display: grid;
+    grid-template-areas: 
+        "profile details"
+        "profile details";
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr 0fr;
+    gap: 10px;
+    margin: 10px;
+    padding: 10px;
+}

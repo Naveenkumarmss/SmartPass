@@ -1,0 +1,22 @@
+
+<main id="container" class="h-[100lvh] w-[100lvw] bg-white flex flex-col">
+    <header id="nav" class="flex m-3 bg-white h-14 align-middle rounded-xl
+        items-center justify-between sticky card">
+        <div id="left" class="flex items-center">
+            <div id="logo" class="w-20 min-h-12 bg-red-500 m-2 rounded-xl"></div>
+            <h1>SmartPass</h1>
+        </div>
+        <div id="menu" class="flex items-center justify-between min-w-[20rem]">
+            <button (click)="handleRoute('profile')">Home</button>
+            <button (click)="handleRoute('plan')">Plans</button>
+            <button (click)="handleRoute('about')">About</button>
+            <button (click)="handleRoute('contact')">Contact</button>
+        </div>
+        <div id="profile">
+            <div id="profile" class="md:w-40 min-h-12 bg-red-500 m-2 rounded-xl"></div>
+        </div>
+    </header>
+    <div id="main-conent" class="min-h-[85vh] mx-3 py-3">
+        <router-outlet></router-outlet>
+    </div>
+</main>

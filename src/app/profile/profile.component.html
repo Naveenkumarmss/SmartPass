@@ -1,0 +1,105 @@
+<div
+  class="grid custom-grid h-[100%] custom-grid overflow-scroll scroll-smooth card border-none"
+>
+  <div id="profile-pic" class="profile-pic p-3">
+    <div id="pic" class="rounded-[50%] h-[50%] bg-profile-bg bg-cover"></div>
+    <div id="active-plan" class="plan h-[50%] pt-3">
+      <form
+        [formGroup]="planGroup"
+        class="flex flex-col w-[80%] justify-center"
+      >
+        <mat-form-field appearance="fill" class="rounded-sm">
+          <mat-label>Plan</mat-label>
+          <input type="text" matInput formControlName="plan" />
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="rounded-sm">
+          <mat-label>Expaired Date</mat-label>
+          <input matInput [matDatepicker]="pickerone" formControlName="expDate" />
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="pickerone"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #pickerone></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Activated Date</mat-label>
+          <input
+            matInput
+            [matDatepicker]="pickertwo"
+            formControlName="activeatedDate"
+          />
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="pickertwo"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #pickertwo></mat-datepicker>
+        </mat-form-field>
+      </form>
+    </div>
+  </div>
+  <div id="userdetail" class="detail border">
+    <div class="h-[100%] flex justify-center items-center rounded-sm">
+      <form
+        [formGroup]="formGroup"
+        class="flex flex-col w-[80%] justify-center"
+      >
+        <mat-form-field appearance="fill" class="rounded-sm">
+          <mat-label>Name</mat-label>
+          <input
+            type="email"
+            matInput
+            placeholder="Ex. pat@example.com"
+            formControlName="name"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="rounded-sm">
+          <mat-label>Email</mat-label>
+          <input
+            type="email"
+            matInput
+            placeholder="Ex. pat@example.com"
+            formControlName="username"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>DOB</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="dob" />
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Aadhar</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="Enter your Adhar Number"
+            formControlName="aadhar"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Age</mat-label>
+          <input
+            type="number"
+            matInput
+            placeholder="Enter your Adhar Number"
+            formControlName="age"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Address</mat-label>
+          <textarea
+            matInput
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="1"
+            cdkAutosizeMaxRows="5"
+            formControlName="address"
+          ></textarea>
+        </mat-form-field>
+      </form>
+    </div>
+  </div>
+</div>

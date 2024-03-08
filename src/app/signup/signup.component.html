@@ -1,0 +1,89 @@
+<div
+  class="h-[100lvh] w-[100lvw flex items-center justify-end p-[5rem] bg-bus-bg scroll-smooth"
+>
+  <div
+    class="md:h-fit md:w-[40vw] sm:w-[95vw] sm:h-[60vh] p-3 rounded-sm ml-auto shadow-sm card"
+  >
+    <div class="h-[100%] flex justify-center items-center rounded-sm">
+      <form
+        [formGroup]="formGroup"
+        (ngSubmit)="onSubmit()"
+        class="flex flex-col w-[80%] justify-center"
+      >
+        <button
+          mat-raised-button
+          class="my-3 ml-auto"
+          (click)="handleFileUpload()"
+          type="button"
+        >
+          <mat-icon *ngIf="photo">cloud_done</mat-icon>
+          <mat-icon *ngIf="!photo">cloud_upload</mat-icon>
+          {{ photo ? "Uploaded" : "Upload" }}
+        </button>
+        <mat-form-field appearance="fill" class="rounded-sm">
+          <mat-label>Email</mat-label>
+          <input
+            type="email"
+            matInput
+            placeholder="Ex. pat@example.com"
+            formControlName="username"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Password</mat-label>
+          <input
+            type="password"
+            matInput
+            placeholder="Enter your password"
+            formControlName="password"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Confirm Password</mat-label>
+          <input
+            type="password"
+            matInput
+            placeholder="Enter your Confirm password"
+            formControlName="confirmPassword"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Aadhar</mat-label>
+          <input
+            type="password"
+            matInput
+            placeholder="Enter your Adhar Number"
+            formControlName="aadhar"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Age</mat-label>
+          <input
+            type="number"
+            matInput
+            placeholder="Enter your Adhar Number"
+            formControlName="age"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Address</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="Enter your Address Number"
+            formControlName="address"
+          />
+        </mat-form-field>
+        <button mat-raised-button color="primary">Signup</button>
+        <p class="p-2">
+          Existing user ?
+          <a class="text-blue-400" [routerLink]="['/login']">Login</a>
+        </p>
+        <!-- 
+          <p class="p-2">
+            Existing user ?
+            <button class="text-blue-400" (click)="commonService.setIsSignup(false)">Login</button></p> -->
+      </form>
+    </div>
+  </div>
+</div>

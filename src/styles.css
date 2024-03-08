@@ -1,1 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .card {
+        border-radius: 10px !important;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
+        filter: blur(0.5px);
+    }
+}

@@ -1,1 +1,41 @@
-<p>plans works!</p>
+<div
+  class="grid custom-grid h-[100%] custom-grid overflow-scroll scroll-smooth card border-none"
+>
+  <div id="profile-pic" class="profile-pic p-3 justify-center flex flex-col items-center">
+    <div class="w-[100%] h-[30%] flex flex-col items-center justify-around">
+        <h1 id="header" class="font-extrabold scale-150">Pricing</h1>
+        <span id="content" class="flex flex-col items-center">
+            <p>Sign up less then 30 seconds. Try out our 7 days risk free trail, upgrade</p>
+            <p>at anytime, no question, no hassle</p>
+        </span>
+    </div>
+    <div id="plans" class="w-[18rem] h-[3rem] bg-slate-700
+        flex p-1 justify-between items-center rounded-sm">
+        <div class="flex flex-1 justify-center items-center h-[100%] w-[100%] hover:cursor-pointer" [ngClass]="{'bg-cyan-400':isMonthly}"
+            role="button" (click)="(isMonthly = true); getPlans()">MONTHLY</div>
+        <div class="flex flex-1 justify-center items-center h-[100%] w-[100%] hover:cursor-pointer" [ngClass]="{'bg-cyan-400':!isMonthly}"
+            role="button" (click)="(isMonthly = false); getPlans()">ANNUAL</div>
+    </div>
+    <div class="w-[100%] h-[70%] overflow-x-scroll p-5 rounded-sm
+        flex">
+        <div class="min-w-12 h-[100%] plan-card flex flex-1 gap-2 flex-col items-center justify-center
+            hover:scale-110 hover:bg-white hover:border-cyan-400 hover:border-2 hover:border-solid gap-2"
+            *ngFor="let item of plans">
+            <h1 class="font-extrabold scale-75">{{item.plan}}</h1>
+            <h1 class="font-extrabold scale-150"><sub class="scale-[25] font-normal">{{item.currencySign}}</sub> {{item.amount}}<sub  class="scale-[25] font-normal">/{{item.duration}}</sub></h1>
+            <ul>
+                <li *ngFor="let subItem of item.planDetails">
+                    <p class="font-thin text-wrap"><mat-icon class="text-[1rem] text-green-500" 
+                        style="height: fit-content !important; width: fit-content !important;"
+                        >check_circle_outline</mat-icon>
+                        {{subItem}}
+                    </p>
+                </li>
+            </ul>
+            <button class="plan-button" (click)="signupPlan(item)">
+                SiGN UP TODAY
+            </button>
+        </div>
+    </div>
+  </div>
+</div>

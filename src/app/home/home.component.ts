@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import {  Router, RouterModule } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-home',
@@ -11,13 +12,24 @@ import {  Router, RouterModule } from '@angular/router';
 })
 export class HomeComponent {
 
+  userName: string = "Welcome " + (localStorage.getItem("name") || "User")
+
   constructor(
     public cdRef: ChangeDetectorRef,
-    private router: Router
+    private router: Router,
+    private cookies: CookieService
   ) { }
 
   handleRoute(route: string) {
     this.router.navigate(["home/"+route]).then(() => {
+      this.cdRef.detectChanges();
+    });
+  }
+
+  logout() {
+    localStorage.clear();
+    this.cookies.deleteAll();
+    this.router.navigate(["login"]).then(() => {
       this.cdRef.detectChanges();
     });
   }

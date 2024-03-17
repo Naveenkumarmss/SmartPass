@@ -7,11 +7,14 @@ import {MatButtonModule} from '@angular/material/button';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { CommonserviceService } from '../servies/commonservice.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HandleFingerprintService } from '../servies/handle-fingerprint.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [MatFormFieldModule, MatInputModule, MatButtonModule, ReactiveFormsModule, RouterModule],
+  imports: [MatFormFieldModule, MatInputModule, MatButtonModule, ReactiveFormsModule, RouterModule, HttpClientModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
@@ -24,24 +27,39 @@ export class LoginComponent implements OnInit{
     private formBuiler: FormBuilder,
     private router: Router,
     public commonService: CommonserviceService,
-    private detect: ChangeDetectorRef
+    private detect: ChangeDetectorRef,
+    private http: HttpClient,
+    private fingerPrintService: HandleFingerprintService,
+    private cookies: CookieService
   ) { 
     this.formGroup = this.formBuiler.group({
-      username: ['', Validators.required],
+      aadharid: ['', Validators.required],
       password: ['', Validators.required]
     });
   }
 
   ngOnInit() {
-
+    console.log(this.cookies.get("token"));
+    const [token, cookie, ...rest] = document.cookie.split("=");
+    if(token === 'token' && cookie) {
+      this.router.navigate(['/home']).then(() => {
+        this.detect.detectChanges();
+      });
+    }
   }
 
   onSubmit() {
-    console.log(this.formGroup.valid);
-    this.router.navigate(['/home']).then(() => {
-      this.detect.detectChanges();
-    })
-    ;
+    // const fingerprint = this.fingerPrintService.checkFingerprint();
+    // if(fingerprint) {
+    //   console.log(this.formGroup.valid);
+      if(this.formGroup.valid) {
+        this.http.post("http://localhost:8080/api/auth/login", {...this.formGroup.value}, {withCredentials: true}).subscribe((res) => {
+          this.router.navigate(['/home']).then(() => {
+            this.detect.detectChanges();
+          });
+        });
+      }
+    // }
   }
 
 }

@@ -7,13 +7,15 @@
             <h1>SmartPass</h1>
         </div>
         <div id="menu" class="flex items-center justify-between min-w-[20rem]">
-            <button (click)="handleRoute('profile')">Home</button>
-            <button (click)="handleRoute('plan')">Plans</button>
-            <button (click)="handleRoute('about')">About</button>
-            <button (click)="handleRoute('contact')">Contact</button>
+            <button (click)="handleRoute('profile')" type="button">Home</button>
+            <button (click)="handleRoute('plan')" type="button">Plans</button>
+            <button (click)="handleRoute('about')" type="button">About</button>
+            <button (click)="handleRoute('contact')" type="button">Contact</button>
         </div>
         <div id="profile">
-            <div id="profile" class="md:w-40 min-h-12 bg-red-500 m-2 rounded-xl"></div>
+            <div id="profile" class="w-fit flex p-2 justify-center items-center min-h-12 bg-cyan-400 text-white m-2 rounded-xl">
+                <button (click)="logout()" type="button">Logout</button>
+            </div>
         </div>
     </header>
     <div id="main-conent" class="min-h-[85vh] mx-3 py-3">

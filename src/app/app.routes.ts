@@ -4,6 +4,8 @@ import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PlansComponent } from './plans/plans.component';
+import { AboutComponent } from './about/about.component';
+import { authGardGuard } from './auth-gard.guard';
 
 export const routes: Routes = [
     {
@@ -24,17 +26,25 @@ export const routes: Routes = [
         children: [
             {  
                 path: '',
-                component: ProfileComponent
+                component: ProfileComponent,
+                canActivate: [authGardGuard]
             },
             {  
                 path: 'profile',
-                component: ProfileComponent
+                component: ProfileComponent,
+                canActivate: [authGardGuard]
             },
             {  
                 path: 'plan',
-                component: PlansComponent
+                component: PlansComponent,
+                canActivate: [authGardGuard]
+            },
+            {  
+                path: 'about',
+                component: AboutComponent,
+                canActivate: [authGardGuard]
             }
-        ]
+        ],
     }, 
     {
         path: '**',

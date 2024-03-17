@@ -10,19 +10,21 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 import { Router, RouterModule } from '@angular/router';
 import { HandleFingerprintService } from '../servies/handle-fingerprint.service';
 import { CommonserviceService } from '../servies/commonservice.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import imageCompression from 'browser-image-compression';
 
 @Component({
   selector: 'app-signup',
   standalone: true,
   imports: [MatFormFieldModule, MatInputModule, MatButtonModule, 
-    ReactiveFormsModule, FormsModule, MatIconModule, CommonModule, RouterModule],
+    ReactiveFormsModule, FormsModule, MatIconModule, CommonModule, RouterModule, HttpClientModule],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css'
 })
 export class SignupComponent implements OnInit{
 
   formGroup!: FormGroup;
-  photo!: File;
+  photo!: string | ArrayBuffer | null;
   @Output() signUp = new EventEmitter();
 
   constructor(
@@ -30,15 +32,17 @@ export class SignupComponent implements OnInit{
     private snackBar: MatSnackBar,
     private fingerPrintService: HandleFingerprintService,
     private router: Router,
-    public commonService: CommonserviceService
+    public commonService: CommonserviceService,
+    private http: HttpClient
     
   ) { 
     this.formGroup = this.formBuiler.group({
+      name: ['', Validators.required],
       username: ['', Validators.required],
       password: ['', Validators.required],
       confirmPassword: ['', Validators.required],
       aadhar: ['', Validators.required],
-      age: ['', Validators.required],
+      age: [0, Validators.required],
       address: ['', Validators.required],
     });
   }
@@ -47,10 +51,27 @@ export class SignupComponent implements OnInit{
   }
 
   onSubmit() {
-    const fingerprint = this.fingerPrintService.checkFingerprint();
-    if(fingerprint) {
-      console.log('fingerprint', fingerprint);
-    }
+
+    // const fingerprint = this.fingerPrintService.checkFingerprint();
+    // if(fingerprint) {
+    //   console.log('fingerprint', fingerprint);
+      let payload = {
+        name: this.formGroup.get("name")?.value,  
+        aadharid: this.formGroup.get("aadhar")?.value, 
+        address: this.formGroup.get("address")?.value,
+        age: this.formGroup.get("age")?.value, 
+        email: this.formGroup.get("username")?.value,
+        fingerprint: "12345", 
+        dob:"12/3/2000",
+        password: this.formGroup.get("password")?.value,
+        image: this.photo
+      }
+      this.http.post("http://localhost:8080/api/auth/signup", payload).subscribe((res: any) => {
+        console.log(res);
+      });
+    // }
+    
+    
   }
 
   handleFileUpload() {
@@ -58,11 +79,13 @@ export class SignupComponent implements OnInit{
     element.type = 'file';
     element.click();
     element.onchange = (event) => {
-      console.log('handleFileUpload', element.files);
       if(element.files?.length) {
-        this.photo = element.files[0];
+        const imageReader = new FileReader();
+        imageReader.onload = () => {
+          this.photo = imageReader.result; 
+        };
+        imageReader.readAsDataURL(element.files[0])
       }
-      console.log(this.photo);
     };
   }
 }

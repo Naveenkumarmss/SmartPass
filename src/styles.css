@@ -9,3 +9,11 @@
         filter: blur(0.5px);
     }
 }
+
+input, textarea:disabled {
+    color: black !important;
+}
+
+mat-label {
+    color: rgb(66, 66, 66);
+}

@@ -1,0 +1,20 @@
+<mat-accordion>
+    <mat-expansion-panel hideToggle *ngFor="let item of data" (opened)="cdRef.detectChanges()" (closed)="cdRef.detectChanges()">
+      <mat-expansion-panel-header>
+        <mat-panel-title> <h2 class="font-semibold">{{ item.header }}</h2> </mat-panel-title>
+      </mat-expansion-panel-header>
+        <p *ngFor="let subItem of item.content"> {{subItem}} </p>
+    </mat-expansion-panel>
+</mat-accordion>
+
+<!-- <footer>
+  <p>
+    Ready to get started? <a href="link_to_sign_up_page">Sign up</a> for an
+    account today!
+  </p>
+  <p>
+    If you have any questions or feedback, please
+    <a href="link_to_contact_page">contact us</a>. We're here to help.
+  </p>
+  <p>Thank you for choosing Your Bus Pass Service!</p>
+</footer> -->

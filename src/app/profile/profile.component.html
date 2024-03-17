@@ -1,14 +1,14 @@
 <div
   class="grid custom-grid h-[100%] custom-grid overflow-scroll scroll-smooth card border-none"
 >
-  <div id="profile-pic" class="profile-pic p-3">
-    <div id="pic" class="rounded-[50%] h-[50%] bg-profile-bg bg-cover"></div>
+  <div id="profile-pic" class="profile-pic p-3 justify-center items-center flex flex-col it">
+    <div id="pic" [ngStyle]="{background: 'url(' + profilePic + ')', backgroundSize: 'cover'}" class="rounded-[50%] h-[15rem] w-[15rem] bg-cover"></div>
     <div id="active-plan" class="plan h-[50%] pt-3">
       <form
         [formGroup]="planGroup"
-        class="flex flex-col w-[80%] justify-center"
+        class="flex flex-col w-[100%] justify-center"
       >
-        <mat-form-field appearance="fill" class="rounded-sm">
+        <mat-form-field appearance="fill" class="rounded-sm w-[100%]">
           <mat-label>Plan</mat-label>
           <input type="text" matInput formControlName="plan" />
         </mat-form-field>

@@ -29,8 +29,10 @@ export class HomeComponent {
   logout() {
     localStorage.clear();
     this.cookies.deleteAll();
-    this.router.navigate(["login"]).then(() => {
-      this.cdRef.detectChanges();
-    });
+    setTimeout(() => {
+      this.router.navigate(["login"]).then(() => {
+        this.cdRef.detectChanges();
+      });
+    }, 500)
   }
 }

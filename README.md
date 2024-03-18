@@ -1,4 +1,4 @@
-![image](https://github.com/Naveenkumarmss/SmartPass/assets/127672824/60f79f12-7dce-4ea8-8128-c9f9dcd496c2)![image](https://github.com/Naveenkumarmss/SmartPass/assets/127672824/bfa36720-5f05-48bd-a9fe-74cb19086a92)![image](https://github.com/Naveenkumarmss/SmartPass/assets/127672824/095fa9a8-49d5-4f1a-ab10-d66ea923e37c)# Smart Bus Pass with Biometric Authentication
+# Smart Bus Pass with Biometric Authentication
 
 A web based application for bus pass with biometric Authentication
 

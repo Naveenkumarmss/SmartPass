@@ -22,6 +22,23 @@ Check the validity of the bus pass.
 4. Biometric Technology Integration 
 5. Integration and Testing
 
+## System Architecture
+
+![image](https://github.com/Naveenkumarmss/SmartPass/assets/127672824/4fd5328f-c6c4-4c9d-96ad-c9487fe4bfcb)
+
+
+## Output Screeshots
+#LOGIN PAGE
+![image](https://github.com/Naveenkumarmss/SmartPass/assets/127672824/e9bf144d-b4ad-4e8d-849e-1420b6699504)
+
+#SIGNUP PAGE
+![image](https://github.com/Naveenkumarmss/SmartPass/assets/127672824/645b691f-2dc2-41de-aeda-2efd97162234)
+
+#HOME PAGE
+![image](https://github.com/Naveenkumarmss/SmartPass/assets/127672824/53a9fb60-e5fa-4ce6-a7ea-0ab8e841806a)
+
+#RENEW PAGE
+![image](https://github.com/Naveenkumarmss/SmartPass/assets/127672824/fc5b3e04-49e9-48d3-ba57-493927d2f89c)
 
 ## Result
 

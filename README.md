@@ -1,27 +1,50 @@
-# Smartpass
+![image](https://github.com/Naveenkumarmss/SmartPass/assets/127672824/60f79f12-7dce-4ea8-8128-c9f9dcd496c2)![image](https://github.com/Naveenkumarmss/SmartPass/assets/127672824/bfa36720-5f05-48bd-a9fe-74cb19086a92)![image](https://github.com/Naveenkumarmss/SmartPass/assets/127672824/095fa9a8-49d5-4f1a-ab10-d66ea923e37c)# Smart Bus Pass with Biometric Authentication
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.2.
+A web based application for bus pass with biometric Authentication
 
-## Development server
+## About
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+The Smart Bus Pass project is revolutionizing bus pass verification and improving user comfort, security, and operational efficiency in the public transportation sector. Through the use of a biometric password and their 12-digit Aadhar ID, users can log in securely with biometric authentication.This additional security layer lowers the possibility of fraudulent bus pass use and virtually eliminates unauthorized access. 
 
-## Code scaffolding
+## Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+handle user registration. 
+Easy way of pass renewal.
+Finest user experience with biometric authentication.
+Improved security layer.
+Check the validity of the bus pass.
 
-## Build
+## Requirements
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. Requirements gathering
+2. System Design 
+3. Software Development 
+4. Biometric Technology Integration 
+5. Integration and Testing
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Result
 
-## Running end-to-end tests
+Majority of the test cases pass successfully, demonstrating the system's ability to handle user registration, authentication, bus pass applications, renewals, and error scenarios effectively.
+Error messages are appropriately triggered for invalid inputs, expired bus passes, and authentication failures, ensuring robust error handling and user feedback.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
+## References
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+[1] A. Dhokrat Nilesh et.al., “QR-code based student bus pass system”, International Journal 
+    of Research in Engineering, Science and Management Volume-2, Issue-1, January-2019
+
+ [2] Sruthi B Raj et.al., “A Smart System for College Bus Transportation”, 2020 International 
+    Research Journal of Engineering and Technology (IRJET) Volume-07 Issue-05, May 2020
+
+ [3] Agyan Panda et.al., “Smart Bus Ticketing System through IOT Enabled Technology”, Big. 
+     Data. Comp. Vis. Vol. 2, No. 1 (2022) 1–8
+
+[4] Ganesh Bikkad et.al., “Smart E bus pass system using QR code”, International Research 
+    Journal of Modernization in Engineering Technology and Science, Volume-05, Issue-06, June2023
+
+[5] Pournima N et.al., “Authentication of bus pass based on QR code”, International Research 
+    Journal of Modernization in Engineering Technology and Science, Volume-05, Issue-08, 
+    August-2023
+
+
